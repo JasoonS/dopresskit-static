@@ -10,14 +10,42 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
+        <style>
+		#content {
+			background-color: #b0c4de;
+		}
+		</style>
+        
         <title>{{ common.title }}</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/uikit/1.2.0/css/uikit.gradient.min.css" rel="stylesheet" type="text/css">
         <link href={% block css_path %}{% endblock %} rel="stylesheet" type="text/css">
+        
+         <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+    <script type="text/javascript">
+        $(function() {
+            var offset = $("#navigation").offset();
+            var topPadding = 15;
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > offset.top) {
+                    $("#navigation").stop().animate({
+                        marginTop: $(window).scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $("#navigation").stop().animate({
+                        marginTop: 0
+                    });
+                };
+            });
+        });
+    </script>
     </head>
 
     <body>
-        <div class="uk-container uk-container-center">
+        <div id="content" class="uk-container uk-container-center">
             <div class="uk-grid">
+				{% if file_exists("pageImages/header.jpg") %}
+                        <img src="images/titleImage/header.png" class="header">
+                    {% endif %}  
                 <div id="navigation" class="uk-width-medium-1-4">
                     <h1 class="nav-header">{% block title %}{% endblock %}</h1>
                     {% block header %}{% endblock %}
@@ -31,7 +59,7 @@
                         {% if file_exists("images/images.zip") or images|length > 0 %}{% block images_screenshots %}{% endblock %}{% endif %}
                         {% if logo %}<li><a href="#logo">Logo & Icon</a></li>{% endif %}
                         {% if common.awards|length > 0 %}<li><a href="#awards">Awards & Recognition</a></li>{% endif %}
-                        {% if common.quotes|length > 0 %}<li><a href="#quotes">Selected Articles</a></li>{% endif %}
+                        {% if common.quotes|length > 0 %}<li><a href="#quotes">Reviews</a></li>{% endif %}
                         {% block _navpreview %}{% endblock %}
                         {% if common.additionals|length > 0 %}<li><a href="#links">Additional Links</a></li> {% endif %}
                         {% block _navabout %}{% endblock %}
@@ -42,11 +70,17 @@
                 </div>
                 <div id="content" class="uk-width-medium-3-4">
 
-                    {% if file_exists("images/header.png") %}
-                        <img src="images/header.png" class="header">
-                    {% endif %}
-
                     <div class="uk-grid">
+						
+						<div class="uk-width-medium-4-6">
+                            {% if common.description|length > 0 %}
+                                <h2 id="description">Description</h2>
+                                <p>{{ common.description }}</p>
+                            {% endif %}
+
+                            {% block historieprojects_historyfeatures %}{% endblock %}
+                        </div>
+						
                         <div class="uk-width-medium-2-6">
                             <h2 id="factsheet">Factsheet</h2>
                             <p>
@@ -61,17 +95,12 @@
 
                             {% block companysite_gamesite %}{% endblock %}
 
+							<p>
+                                <strong>Download:</strong><br/>
+                                <a href="https://github.com/JasoonS/MechInfiltration/blob/master/MechInfiltration.jar?raw=true">Jar File</a><br/>
+                            </p>
                             {% block press_regularprice %}{% endblock %}
 
-                        </div>
-
-                        <div class="uk-width-medium-4-6">
-                            {% if common.description|length > 0 %}
-                                <h2 id="description">Description</h2>
-                                <p>{{ common.description }}</p>
-                            {% endif %}
-
-                            {% block historieprojects_historyfeatures %}{% endblock %}
                         </div>
                     </div>
 
@@ -111,7 +140,7 @@
                     {% endif %}
 
                     {% if file_exists("images/images.zip") or images|length > 0 %}
-                        <h2 id="images">Images</h2>
+                        <h2 id="images">Solution Images</h2>
 
                         {% if file_exists("images/images.zip") %}
                             {% set fsize = filesize("images/images.zip") %}
@@ -128,7 +157,7 @@
                         {% endif %}
 
                         <br/>
-                        <p class="images-text">There are far more images available for {{ common.title }}, but these are the ones we felt would be most useful to you. If you have specific requests, please do <a href="#contact">contact us</a>!</p>
+                        <p class="images-text">*Spoiler allert! These are sollutions to the puzzles, looking at them may spoil the fun!</p>
 
                         <hr>
                     {% endif %}
@@ -167,7 +196,7 @@
                     {% endif %}
 
                     {% if common.quotes|length > 0 %}
-                        <h2 id="quotes">Selected Articles</h2>
+                        <h2 id="quotes">Reviews</h2>
                         <ul>
                             {% for quote in common.quotes.quote %}
                                 <li>"{{ quote.description }}"<br/><cite>- {{ quote.name }}, <a href="{{ parse_url(quote.link) }}">{{ quote.website }}</a></cite></li></li>

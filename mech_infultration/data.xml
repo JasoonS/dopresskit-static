@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<game>
+	<title>Mech Infiltration</title>
+	<release-date>15 September, 2015</release-date>
+	<website>http://jasoons.github.io</website>
+	<press-can-request-copy>FALSE</press-can-request-copy>
+
+	<platforms>
+		<platform>
+			<name>Desktop - Java</name>
+			<link>https://java.com/en/download/</link>
+		</platform>
+	</platforms>
+	
+	<prices>
+		<price>
+			<currency>Free</currency>
+			<value>R0.00</value>
+		</price>
+	</prices>
+
+	<description>
+	Mech Infultration is a game with two parts. 
+	For one part it is a puzzle game. For the second part it is an action chase game. 
+	The ballance of these two aspects makes it extremely exciting to play. 
+	You may have the correct 'solution' in the puzzle section but be unable to win due to bad play in the second half.
+	On the other hand, you may be playing very well, but because you haven't found the correct way to solve the puzzle all your attempts will be in vain.
+	</description>
+	
+	<history>
+	This story is, to some extent, inspired by the Lego Movie. In which Bob is the ‘Special’ instead of Emmet Brickowski, and instead of being a ‘Master Builder’ Bob is a ‘Master Mechanic’. Zenu represents the ‘Digital Revolution’ which is a big threat to the culture and lifestyles of the long tradition of  ‘Master Mechanics’ that have been governing this civilisation. 
+	The coming of Zenu had been prophesied centuries before, and in these prophecies there was a chosen hero called the ‘Special’ who would defeat Zenu to restore the Mechanic way of life. Bob is this ‘Special’, and he believes that his mission is of ultimate purpose. He believes that this ‘Digital Revolution’ will be the end of a good life for millions. He believes that when everything goes digital the joy and creativity that comes with building things mechanically will die. This would leave a society of people who are unable to think for themselves, and left helpless and depressed as the creative urge that is in all humans will no longer have a way to express itself.
+	</history>
+
+	<features>
+		<feature>Easy to learn controlls, the arrow keys and space bar.</feature>
+		<feature>Multiple levels to choose from.</feature>
+		<feature>3 different types of enemies that use different strategies to attack you.</feature>
+		<feature>Sand box mode, to fiddle with and configure the A* path finding algorithm.</feature>
+		<feature>Intuitive click selection with the mouse to construct gears.</feature>
+	</features>
+	
+	<trailers>
+		<trailer>
+			<name>Story and gameplay.</name>
+			<youtube>fYIfaxfaQKw</youtube>
+		</trailer>
+		<trailer>
+			<name>Sandbox mode.</name>
+			<youtube>b7lYzjFTRaw</youtube>
+		</trailer>
+	</trailers>
+	
+	<awards>
+	</awards>
+	
+	<quotes>
+		<quote>
+			<description>A thrill to play!</description>
+			<name>Nazlı Kaya</name>
+			<website>Website</website>
+			<link>http://website</link>
+		</quote>
+	</quotes>
+	
+	<additionals>
+		<additional>
+			<title>Original Soundtrack</title>
+			<description>Available for free from</description>
+			<link>http://ccmixter.org/content/Lancefield/Lancefield_-_A_Spooky_Little_Thing.mp3</link>
+		</additional>
+	</additionals>
+	
+	<credits>
+		<credit>
+			<person>Jason Smythe</person>
+			<role>Design, Development &amp; Layout and Image Creation</role>
+		</credit>
+	</credits>
+</game>
